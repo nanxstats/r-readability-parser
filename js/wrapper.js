@@ -1,7 +1,10 @@
-function readabilityParser(x) {
+function readabilityParser(x, candidates, threshold) {
   // Parse jsdom with readability.js
   let doc = new jsdom.JSDOM(x);
-  let reader = new Readability.Readability(doc.window.document);
+  let reader = new Readability.Readability(
+    doc.window.document,
+    options = { nbTopCandidates: candidates, charThreshold: threshold }
+  );
   let res = reader.parse();
 
   // Sanitize results to avoid script injection

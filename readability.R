@@ -1,4 +1,4 @@
-readability <- function(html) {
+readability <- function(html, candidates = 5L, threshold = 500L) {
   ct <- V8::v8(global = "window")
 
   ct$eval("function setTimeout(){}")
@@ -10,5 +10,5 @@ readability <- function(html) {
   ct$eval(readLines("js/wrapper.js"))
 
   # ct$get(V8::JS("Object.keys(window)"))
-  ct$call("readabilityParser", html)
+  ct$call("readabilityParser", html, candidates, threshold)
 }
