@@ -1,7 +1,7 @@
 # r-readability-parser
 
-A minimal R wrapper of [Readability.js](https://github.com/mozilla/readability)
-written with {V8}.
+A minimal R wrapper for [Readability.js](https://github.com/mozilla/readability)
+written with [V8](https://github.com/jeroen/V8).
 
 ## Installing dependencies
 
