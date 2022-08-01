@@ -19,3 +19,11 @@ function readabilityParser(html, url, candidates, threshold) {
 
   return res;
 }
+
+function isReadable(html, min_content_length, min_score) {
+  let doc = new jsdom.JSDOM(html);
+  return Readability.isProbablyReaderable(
+    doc.window.document,
+    { minContentLength: min_content_length, minScore: min_score }
+  );
+}
