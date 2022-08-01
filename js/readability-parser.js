@@ -1,9 +1,12 @@
-function readabilityParser(x, candidates, threshold) {
+function readabilityParser(html, url, candidates, threshold) {
   // Parse jsdom with readability.js
-  let doc = new jsdom.JSDOM(x);
+  let doc = new jsdom.JSDOM(
+    html,
+    { url: url }
+  );
   let reader = new Readability.Readability(
     doc.window.document,
-    options = { nbTopCandidates: candidates, charThreshold: threshold }
+    { nbTopCandidates: candidates, charThreshold: threshold }
   );
   let res = reader.parse();
 
